@@ -26,7 +26,7 @@ public class NumbersSortingExample {
 		//Read parameters
 		String inFilename = args[0];
 		String outFilename = args[1];
-		String algorithm = "Merge";
+		String algorithm = "Quick";
 		if(args.length>2) algorithm = args[2];
 		
 		//Read input file

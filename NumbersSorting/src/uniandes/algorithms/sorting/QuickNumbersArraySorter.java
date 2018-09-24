@@ -7,52 +7,44 @@ public class QuickNumbersArraySorter implements NumbersArraySorter {
 
 	@Override
 	public void sort(double[] numbers) {
-		sort(numbers, 0, numbers.length - 1);
+		ordenar(numbers, 0, numbers.length - 1);
 	}
 	
-	 private static void sort(double[] a, int lo, int hi) { 
-	        if (hi <= lo) return;
-	        int j = partition(a, lo, hi);
-	        sort(a, lo, j-1);
-	        sort(a, j+1, hi);
+	 private void ordenar(double[] numbers, int min, int max) { 
+	        if (max <= min) return;
+	        int j = partir(numbers, min, max);
+	        ordenar(numbers, min, j-1);
+	        ordenar(numbers, j+1, max);
 	    }
 	 
-	 private static int partition(double[] a, int lo, int hi) {
-	        int i = lo;
-	        int j = hi + 1;
-	        double v = a[lo];
+	 private int partir(double[] numbers, int min, int max) {
+	        int i = min;
+	        int j = max + 1;
+	        double v = numbers[min];
 	        while (true) { 
 
-	            while (less(a[++i], v)) {
-	                if (i == hi) break;
+	            while (numbers[++i] < v) {
+	                if (i == max) break;
 	            }
 
-	            while (less(v, a[--j])) {
-	                if (j == lo) break;  
+	            while (v < numbers[--j]) {
+	                if (j == min) break;  
 	            }
 
 	            if (i >= j) break;
 
-	            exch(a, i, j);
+	            cambiar(numbers, i, j);
 	        }
 
-	        exch(a, lo, j);
+	        cambiar(numbers, min, j);
 
 	        return j;
 	    }
-	 
-	 
-	    private static boolean less(double v, double w) {
-	    	Double V = new Double(v);
-	    	Double W = new Double(w);
-	        if (v == w) return false;   
-	        return V.compareTo(W) < 0;
-	    }
 	        
-	    private static void exch(double[] a, int i, int j) {
-	        double swap = a[i];
-	        a[i] = a[j];
-	        a[j] = swap;
+	    private void cambiar(double[] numbers, int i, int j) {
+	        double cambio = numbers[i];
+	        numbers[i] = numbers[j];
+	        numbers[j] = cambio;
 	    }
 
 
