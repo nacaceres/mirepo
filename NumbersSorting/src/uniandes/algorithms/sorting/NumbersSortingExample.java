@@ -21,12 +21,12 @@ public class NumbersSortingExample {
 	 */
 	public static void main(String[] args) throws Exception {
 		args = new String[2];
-		args[0]= "data/numbers.txt";
+		args[0]= "data/cienMil.txt";
 		args[1]= "data/respuesta.txt";
 		//Read parameters
 		String inFilename = args[0];
 		String outFilename = args[1];
-		String algorithm = "Bubble";
+		String algorithm = "Merge";
 		if(args.length>2) algorithm = args[2];
 		
 		//Read input file
