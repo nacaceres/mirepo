@@ -21,14 +21,11 @@ public class MergeNumbersArraySorter implements NumbersArraySorter {
 	}
 
 	private static void merge(double[] a, double[] aux, int lo, int mid, int hi) {
-		// precondition: a[lo .. mid] and a[mid+1 .. hi] are sorted subarrays
 
-		// copy to aux[]
 		for (int k = lo; k <= hi; k++) {
 			aux[k] = a[k]; 
 		}
 
-		// merge back to a[]
 		int i = lo, j = mid+1;
 		for (int k = lo; k <= hi; k++) {
 			if      (i > mid)              a[k] = aux[j++];
